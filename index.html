@@ -3,63 +3,43 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Visheshagya Clinic — Orthopedics & Gynecology</title>
-  <meta name="description" content="Visheshagya Dekhbhal: Orthopedics aur Gynecology mein. Appointment book karein." />
-
+  <title>Aaryogyashala — Orthopedics & Gynecology</title>
+  
   <style>
+    /* तुम्हारी पुरानी CSS Variables */
     :root{
       --primary:#0b6b6b;
       --accent:#0f9d9d;
       --muted:#6b7280;
       --bg:#f7faf9;
       --card:#ffffff;
-      --danger:#d9534f;
       --max-width:1100px;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:#0f1724;line-height:1.5}
-    .container{max-width:var(--max-width);margin:0 auto;padding:24px}
+    *{box-sizing:border-box; font-family: Inter, system-ui, sans-serif;}
+    body{margin:0; background:var(--bg); color:#0f1724;}
+    .container{max-width:var(--max-width); margin:0 auto; padding:24px}
 
-    /* Emergency Bar */
-    .topbar{position:sticky;top:0;z-index:50;background:linear-gradient(90deg, rgba(11,107,107,0.98), rgba(15,157,157,0.95));color:#fff;padding:12px 0;box-shadow:0 4px 10px rgba(2,6,23,0.08)}
-    .topbar .inner{display:flex;align-items:center;justify-content:space-between;max-width:var(--max-width);margin:0 auto;padding:0 18px}
-    .emergency{font-weight:700;font-size:1.05rem}
-    .cta-book{background:#fff;color:var(--primary);padding:10px 16px;border-radius:8px;font-weight:700;text-decoration:none}
+    /* Topbar & Header */
+    .topbar{position:sticky; top:0; z-index:100; background:var(--primary); color:#fff; padding:12px 0;}
+    .topbar .inner{display:flex; justify-content:space-between; max-width:var(--max-width); margin:0 auto; padding:0 18px;}
+    .cta-book{background:#fff; color:var(--primary); padding:8px 15px; border-radius:8px; text-decoration:none; font-weight:bold;}
 
-    header{padding:28px 0}
-    .brand{display:flex;gap:16px;align-items:center}
-    .logo{width:68px;height:68px;border-radius:12px;background:linear-gradient(180deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:22px}
-    h1{font-size:1.7rem;margin:0}
-    p.lead{color:var(--muted);margin-top:6px}
+    .brand{display:flex; gap:16px; align-items:center; margin:20px 0;}
+    .logo{width:60px; height:60px; border-radius:12px; background:linear-gradient(180deg,var(--primary),var(--accent)); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:20px;}
 
-    .hero{display:flex;gap:24px;align-items:center;margin-top:18px}
-    .hero .left{flex:1}
-    .hero .right{width:300px;background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 24px rgba(11,107,107,0.06)}
+    /* Sections */
+    section.card{background:var(--card); padding:25px; border-radius:12px; margin-top:20px; box-shadow:0 4px 15px rgba(0,0,0,0.05);}
+    .grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+    
+    /* === NEW: Billing Dashboard Style === */
+    .billing-panel { background: #e0f2f2; border: 2px solid var(--primary); padding: 20px; border-radius: 12px; margin-top: 30px; }
+    .btn-auto { background: var(--primary); color: white; border: none; padding: 10px 15px; border-radius: 6px; cursor: pointer; margin: 5px; font-weight: bold; }
+    #qrBox { text-align: center; display: none; margin-top: 20px; background: white; padding: 15px; border-radius: 10px; }
 
-    .doctors{display:flex;gap:12px;align-items:center}
-    .doc{display:flex;gap:12px;align-items:center}
-    .doc img{width:64px;height:64px;border-radius:8px;object-fit:cover}
+    input, select, textarea { width:100%; padding:10px; border:1px solid #ddd; border-radius:8px; margin-top:5px; }
+    button.primary { background:var(--primary); color:#fff; padding:12px 20px; border-radius:8px; border:0; font-weight:700; cursor:pointer; width:100%; }
 
-    section.card{background:var(--card);padding:20px;border-radius:12px;margin-top:18px;box-shadow:0 8px 20px rgba(2,6,23,0.04)}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-
-    ul.services{padding-left:18px;margin:8px 0;color:var(--muted)}
-
-    form .row{display:flex;gap:12px}
-    input,select,textarea{width:100%;padding:10px;border:1px solid #e6eef0;border-radius:8px}
-    label{font-size:0.9rem;color:var(--muted);display:block;margin-bottom:6px}
-    button.primary{background:var(--primary);color:#fff;padding:10px 14px;border-radius:8px;border:0;font-weight:700;cursor:pointer}
-
-    footer{margin-top:24px;padding:24px 0;color:var(--muted);font-size:0.95rem}
-
-    @media (max-width:900px){
-      .hero{flex-direction:column}
-      .grid{grid-template-columns:1fr}
-      .hero .right{width:100%}
-      .doctors{flex-direction:column;align-items:flex-start}
-      .topbar .inner{flex-direction:column;gap:8px}
-    }
+    @media (max-width:768px){ .grid{grid-template-columns: 1fr;} }
   </style>
 </head>
 
@@ -67,231 +47,94 @@
 
   <div class="topbar">
     <div class="inner">
-      <div class="emergency">Emergency Number:
-        <a href="tel:+919661791608" style="color:#fff;text-decoration:underline">+91 8409681110</a>
-      </div>
-      <a class="cta-book" href="#appointment">Appointment Book Karein</a>
+      <div class="emergency">Emergency: <a href="tel:+918409681110" style="color:#fff;">+91 8409681110</a></div>
+      <a class="cta-book" href="#appointment">Book Now</a>
     </div>
   </div>
 
   <div class="container">
-
-    <header>
-      <div class="brand">
-        <div class="logo">VH</div>
-        <div>
-          <h1>Aryogyashala</h1>
-          <p class="lead">Visheshagya Dekhbhal: Orthopedics aur Gynecology mein. Humare specialists se turant salah lein.</p>
-        </div>
-      </div>
-
-      <div class="hero">
-        <div class="left">
-          <h2 style="margin-top:12px">"Visheshagya Dekhbhal: Orthopedics aur Gynecology mein."</h2>
-          <p class="lead">Quality care, experienced doctors, aur compassionate staff.</p>
-
-          <div style="margin-top:14px" class="doctors">
-            <div class="doc">
-              <img src="sanjeet.png" alt="Dr. Sanjeet Kumar">
-              <div>
-                <div style="font-weight:700">Dr. Sanjeet Kumar</div>
-                <div style="color:var(--muted)">Orthopedic Specialist — Joint Surgery, Fracture, ACL, Replacement</div>
-              </div>
-            </div>
-
-            <div class="doc">
-              <img src="anjali.png" alt="Dr. Anjali Kumari">
-              <div>
-                <div style="font-weight:700">Dr. Anjali Kumari</div>
-                <div style="color:var(--muted)">Gynecologist — Maternity, Pregnancy Care, Women's Health</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <aside class="right">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <strong>Quick Actions</strong>
-            <a href="#contact" style="font-size:0.9rem;color:var(--muted)">Humse Sampark</a>
-          </div>
-          <div style="margin-top:12px">
-            <div style="font-size:0.95rem;font-weight:700">Appointment</div>
-            <p style="margin:6px 0;color:var(--muted)">Call:
-              <a href="tel:+918409681110">+91 8409681110</a>
-            </p>
-            <a class="primary" href="#appointment"
-              style="display:inline-block;margin-top:6px;text-align:center;text-decoration:none">Appointment Book Karein</a>
-          </div>
-        </aside>
+    <header class="brand">
+      <div class="logo">VH</div>
+      <div>
+        <h1>Aaryogyashala Clinic</h1>
+        <p style="color:var(--muted)">Dr. Sanjeet Kumar (Ortho) & Dr. Anjali Kumari (Gynae)</p>
       </div>
     </header>
 
-    <section class="card" id="doctors">
+    <section class="card">
       <h3>Humare Doctors</h3>
-      <p class="lead">Complete profile — experience, education, focus aur timing.</p>
-
-      <div class="grid" style="margin-top:12px">
-
-        <div>
-          <article style="padding:12px;border-radius:10px;background:#fff">
-            <h4>Dr. Sanjeet Kumar — Orthopedic Surgeon</h4>
-            <p style="color:var(--muted)"><strong>Experience:</strong> 2 saal | <strong>Education:</strong> MBBS, MD</p>
-            <p style="color:var(--muted)"><strong>Focus:</strong> Joint Surgery, Fracture Treatment, ACL Repair, Replacement</p>
-            <p style="color:var(--muted)"><strong>Timing:</strong> Mon–Fri 10–14, Sat 10–13</p>
-            <a href="#appointment" class="primary" style="display:inline-block;margin-top:8px;text-decoration:none">
-              Dr. Sanjeet ke liye Appointment
-            </a>
-          </article>
-        </div>
-
-        <div>
-          <article style="padding:12px;border-radius:10px;background:#fff">
-            <h4>Dr. Anjali Kumari — Gynecologist</h4>
-            <p style="color:var(--muted)"><strong>Experience:</strong> 2 saal | <strong>Education:</strong> MBBS, MD</p>
-            <p style="color:var(--muted)"><strong>Focus:</strong> Pregnancy Care, PCOD, Deliveries</p>
-            <p style="color:var(--muted)"><strong>Timing:</strong> Tue, Thu 11–16, Sat 15–18</p>
-            <a href="#appointment" class="primary" style="display:inline-block;margin-top:8px;text-decoration:none">
-              Dr. Anjali ke liye Appointment
-            </a>
-          </article>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="card" id="services">
-      <h3>Upchaar aur Vibhag</h3>
-
-      <div class="grid" style="margin-top:12px">
-        <div>
-          <h4>Haddi aur Jodon ka Vibhag (Orthopedics)</h4>
-          <ul class="services">
-            <li>Fracture Treatment & Casting</li>
-            <li>ACL Repair aur Ligament Surgeries</li>
-            <li>Joint Replacement (Hip, Knee)</li>
-            <li>Arthroscopy</li>
-            <li>Sports Injury Management</li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Stree Rog Vibhag (Gynecology)</h4>
-          <ul class="services">
-            <li>Maternity Care aur ANC</li>
-            <li>Deliveries (Normal & C-Section)</li>
-            <li>PCOD/PCOS Treatment</li>
-            <li>Infertility Consultations</li>
-            <li>Menstrual Disorders</li>
-          </ul>
-        </div>
+      <div class="grid">
+        <article>
+          <strong>Dr. Sanjeet Kumar</strong> (Orthopedic Surgeon)
+          <p style="font-size:0.9rem; color:var(--muted)">MBBS, MD | Exp: 2 saal<br>Focus: Joint Surgery, Fracture, ACL</p>
+        </article>
+        <article>
+          <strong>Dr. Anjali Kumari</strong> (Gynecologist)
+          <p style="font-size:0.9rem; color:var(--muted)">MBBS, MD | Exp: 2 saal<br>Focus: Pregnancy Care, PCOD, Deliveries</p>
+        </article>
       </div>
     </section>
 
     <section class="card" id="appointment">
       <h3>Appointment Lijiye</h3>
-      <p class="lead">Simple booking form — Naam, Phone, Email aur doctor selection.</p>
-
       <form id="appointmentForm" action="https://formspree.io/f/xblnplaz" method="POST">
-        <div class="row" style="flex-direction:column">
-
-          <div style="margin-bottom:10px">
-            <label for="name">Naam</label>
-            <input id="name" name="name" required placeholder="Aapka naam" />
-          </div>
-
-          <div style="display:flex;gap:12px;flex-direction:column;margin-bottom:10px">
-            <div>
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" required placeholder="+91 9xxxxxxxxx" />
-            </div>
-
-            <div>
-              <label for="email">Email (optional)</label>
-              <input id="email" name="email" placeholder="aap@example.com" />
-            </div>
-          </div>
-
-          <div style="margin-bottom:10px">
-            <label for="doctor">Kis Doctor ko Dikhana Hai?</label>
-            <select id="doctor" name="doctor" required>
-              <option value="">-- Select --</option>
-              <option value="Orthopedic — Dr. Sanjeet Kumar">Orthopedic — Dr. Sanjeet Kumar</option>
-              <option value="Gynecologist — Dr. Anjali Kumari">Gynecologist — Dr. Anjali Kumari</option>
-            </select>
-          </div>
-
-          <div style="margin-bottom:10px">
-            <label for="message">Short Message (optional)</label>
-            <textarea id="message" name="message" rows="3" placeholder="Briefly bataiye..."></textarea>
-          </div>
-
-          <div style="display:flex;gap:12px;align-items:center">
-            <button class="primary" type="submit">Appointment Request Bhejein</button>
-            <div style="color:var(--muted);font-size:0.9rem">
-              Hum confirmation call/message bhejenge.
-            </div>
-          </div>
-
+        <div class="grid">
+          <input name="name" required placeholder="Aapka Naam" />
+          <input name="phone" required placeholder="Phone Number" />
         </div>
+        <select name="doctor" required style="margin: 15px 0;">
+          <option value="">-- Doctor Select Karein --</option>
+          <option value="Dr. Sanjeet Kumar">Dr. Sanjeet Kumar (Haddi Rog)</option>
+          <option value="Dr. Anjali Kumari">Dr. Anjali Kumari (Stree Rog)</option>
+        </select>
+        <textarea name="message" placeholder="Short Message (optional)"></textarea>
+        <button class="primary" type="submit" style="margin-top:15px">Request Bhejein (WhatsApp Confirmation)</button>
       </form>
+      <div id="successMessage" style="display:none; color:green; margin-top:15px; font-weight:bold;">🎉 Appointment Request Sent!</div>
+    </section>
 
-      <div id="successMessage"
-        style="display:none;background:#e8ffe8;padding:15px;border-radius:10px;margin-top:15px;border:1px solid #b6ffb6;">
-        <h3>Appointment Booked Successfully! 🎉</h3>
-        <p>Thank you for booking. Our team will contact you soon.</p>
+    <section class="billing-panel" id="admin-billing">
+      <h3>Staff Billing Panel (Admin Only)</h3>
+      <p>Quick Bill Generate Karein:</p>
+      <div class="btn-grid">
+        <button class="btn-auto" onclick="makeBill(200, 'OPD Registration')">OPD (₹200)</button>
+        <button class="btn-auto" onclick="makeBill(500, 'Consultation')">Consultation (₹500)</button>
+        <button class="btn-auto" onclick="makeBill(1500, 'Surgery/Treatment')">Special (₹1500)</button>
       </div>
-      </section>
 
-    <section class="card" id="contact">
-      <h3>Contact & Location</h3>
-      <p class="lead">Humse sampark karein ya location check karein.</p>
-
-      <div style="margin-top:12px">
-  <p><strong>Phone:</strong> <a href="tel:+918409681110">+91 8409681110</a></p>
-  <p><strong>Email:</strong> phantomglows.1729@gmail.com</p>
-  <p><strong>Location:</strong> 
-    <a href="https://www.google.com/maps/search/?api=1&query=iCnusaxuccG1gcDr9">
-      Open in Google Maps
-    </a>
-  </p>
-</div>
-      
-    <section class="card" id="testimonials">
-      <h3>Rogi kya kehte hain</h3>
-
-      <div class="grid" style="margin-top:12px">
-        <div style="background:#fff;padding:14px;border-radius:10px;">
-          <p>"Bahut hi accha treatment. Dr. Sanjeet ne fracture ka sahi diagnosis kiya."</p>
-          <strong>- Rohan Kumar</strong>
-        </div>
-
-        <div style="background:#fff;padding:14px;border-radius:10px;">
-          <p>"Dr. Anjali bahut polite aur helpful hain. Pregnancy care bilkul safe raha."</p>
-          <strong>- Priya Sharma</strong>
-        </div>
+      <div id="qrBox">
+        <h4 id="billTag">Service Name</h4>
+        <div id="qrImg"></div>
+        <h2 id="billAmt">₹0</h2>
+        <p style="font-size: 0.8rem; color: var(--muted);">Scan with Any UPI App</p>
+        <button onclick="document.getElementById('qrBox').style.display='none'" style="margin-top:10px">Close</button>
       </div>
     </section>
 
-  </div> <footer>
-    <div class="container">
-      © 2025 Aryogyashala Clinic — All Rights Reserved.
-    </div>
+    <section class="card">
+      <h3>Rogi kya kehte hain</h3>
+      <div class="grid">
+        <p><i>"Bahut hi accha treatment. Dr. Sanjeet ne fracture ka sahi diagnosis kiya."</i><br><b>- Rohan Kumar</b></p>
+        <p><i>"Dr. Anjali bahut polite hain. Pregnancy care safe raha."</i><br><b>- Priya Sharma</b></p>
+      </div>
+    </section>
+
+  </div>
+
+  <footer style="text-align:center; padding:30px; color:var(--muted)">
+    © 2025 Aaryogyashala Clinic — All Rights Reserved.
   </footer>
 
-
   <script>
+    // 1. WhatsApp & Formspree Logic (From your file)
     const form = document.getElementById("appointmentForm");
     const successBox = document.getElementById("successMessage");
 
-    form.addEventListener("submit", async function (event) {
-      event.preventDefault(); // Stop default refresh
-
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
       const data = new FormData(form);
-
-      // -----------------------------------
-      // SEND TO FORMSPREE
-      // -----------------------------------
+      
+      // Send to Formspree
       let response = await fetch(form.action, {
         method: "POST",
         body: data,
@@ -299,38 +142,29 @@
       });
 
       if (response.ok) {
-        
-        // SHOW SUCCESS BOX
         successBox.style.display = "block";
-
-        // CLEAR FORM
-        form.reset();
-
-        // -----------------------------------
-        // SEND WhatsApp notification
-        // -----------------------------------
-
         const name = data.get("name");
         const phone = data.get("phone");
-        const doctor = data.get("doctor");
-        const message = data.get("message") || "No message";
-
-        const encoded =
-          `New Appointment Booking:%0A` +
-          `Name: ${name}%0A` +
-          `Phone: ${phone}%0A` +
-          `Doctor: ${doctor}%0A` +
-          `Message: ${message}`;
-
-        // 
-        const whatsappNumber = "918409681110"; // <- 
-
-        window.open(`https://wa.me/${whatsappNumber}?text=${encoded}`, "_blank");
-
-      } else {
-        alert("Error: Please try again.");
+        const doc = data.get("doctor");
+        
+        // Open WhatsApp
+        const text = `New Appointment:%0AName: ${name}%0APhone: ${phone}%0ADoctor: ${doc}`;
+        window.open(`https://wa.me/918409681110?text=${text}`, "_blank");
+        form.reset();
       }
     });
+
+    // 2. Billing Logic (New)
+    function makeBill(amt, service) {
+      const upiId = "8409681110@ybl";
+      const upiLink = `upi://pay?pa=${upiId}&pn=Aaryogyashala&am=${amt}&cu=INR&tn=${service}`;
+      const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(upiLink)}`;
+      
+      document.getElementById('billTag').innerText = service;
+      document.getElementById('billAmt').innerText = "Pay: ₹" + amt;
+      document.getElementById('qrImg').innerHTML = `<img src="${qrUrl}" />`;
+      document.getElementById('qrBox').style.display = 'block';
+    }
   </script>
 
 </body>

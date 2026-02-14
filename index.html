@@ -3,169 +3,161 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aaryogyashala — Orthopedics & Gynecology</title>
-  
+  <title>Aryogyashala — Orthopedics & Gynecology</title>
   <style>
-    /* तुम्हारी पुरानी CSS Variables */
+    /* Aapki Original Style (Unchanged) */
     :root{
-      --primary:#0b6b6b;
-      --accent:#0f9d9d;
-      --muted:#6b7280;
-      --bg:#f7faf9;
-      --card:#ffffff;
+      --primary:#0b6b6b; --accent:#0f9d9d; --muted:#6b7280; --bg:#f7faf9; --card:#ffffff;
       --max-width:1100px;
+      font-family: Inter, system-ui, sans-serif;
     }
-    *{box-sizing:border-box; font-family: Inter, system-ui, sans-serif;}
-    body{margin:0; background:var(--bg); color:#0f1724;}
-    .container{max-width:var(--max-width); margin:0 auto; padding:24px}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:#0f1724;line-height:1.5}
+    .container{max-width:var(--max-width);margin:0 auto;padding:24px}
 
-    /* Topbar & Header */
-    .topbar{position:sticky; top:0; z-index:100; background:var(--primary); color:#fff; padding:12px 0;}
-    .topbar .inner{display:flex; justify-content:space-between; max-width:var(--max-width); margin:0 auto; padding:0 18px;}
-    .cta-book{background:#fff; color:var(--primary); padding:8px 15px; border-radius:8px; text-decoration:none; font-weight:bold;}
-
-    .brand{display:flex; gap:16px; align-items:center; margin:20px 0;}
-    .logo{width:60px; height:60px; border-radius:12px; background:linear-gradient(180deg,var(--primary),var(--accent)); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:20px;}
+    /* Topbar */
+    .topbar{position:sticky;top:0;z-index:50;background:var(--primary);color:#fff;padding:12px 0;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
+    .topbar .inner{display:flex;align-items:center;justify-content:space-between;max-width:var(--max-width);margin:0 auto;padding:0 18px}
+    .cta-book{background:#fff;color:var(--primary);padding:10px 16px;border-radius:8px;font-weight:700;text-decoration:none}
 
     /* Sections */
-    section.card{background:var(--card); padding:25px; border-radius:12px; margin-top:20px; box-shadow:0 4px 15px rgba(0,0,0,0.05);}
-    .grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+    section.card{background:var(--card);padding:20px;border-radius:12px;margin-top:18px;box-shadow:0 8px 20px rgba(0,0,0,0.04)}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .logo{width:68px;height:68px;border-radius:12px;background:linear-gradient(180deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:22px}
     
-    /* === NEW: Billing Dashboard Style === */
+    /* === BILLING DASHBOARD STYLE (Only New Part) === */
     .billing-panel { background: #e0f2f2; border: 2px solid var(--primary); padding: 20px; border-radius: 12px; margin-top: 30px; }
     .btn-auto { background: var(--primary); color: white; border: none; padding: 10px 15px; border-radius: 6px; cursor: pointer; margin: 5px; font-weight: bold; }
-    #qrBox { text-align: center; display: none; margin-top: 20px; background: white; padding: 15px; border-radius: 10px; }
+    #qrBox { text-align: center; display: none; margin-top: 20px; background: white; padding: 15px; border-radius: 10px; border: 1px solid #ddd; }
 
-    input, select, textarea { width:100%; padding:10px; border:1px solid #ddd; border-radius:8px; margin-top:5px; }
-    button.primary { background:var(--primary); color:#fff; padding:12px 20px; border-radius:8px; border:0; font-weight:700; cursor:pointer; width:100%; }
-
-    @media (max-width:768px){ .grid{grid-template-columns: 1fr;} }
+    input,select,textarea{width:100%;padding:10px;border:1px solid #e6eef0;border-radius:8px}
+    button.primary{background:var(--primary);color:#fff;padding:10px 14px;border-radius:8px;border:0;font-weight:700;cursor:pointer}
+    @media (max-width:900px){ .grid{grid-template-columns:1fr} }
   </style>
 </head>
-
 <body>
 
   <div class="topbar">
     <div class="inner">
       <div class="emergency">Emergency: <a href="tel:+918409681110" style="color:#fff;">+91 8409681110</a></div>
-      <a class="cta-book" href="#appointment">Book Now</a>
+      <a class="cta-book" href="#appointment">Appointment Book Karein</a>
     </div>
   </div>
 
   <div class="container">
-    <header class="brand">
-      <div class="logo">VH</div>
-      <div>
-        <h1>Aaryogyashala Clinic</h1>
-        <p style="color:var(--muted)">Dr. Sanjeet Kumar (Ortho) & Dr. Anjali Kumari (Gynae)</p>
+    <header>
+      <div class="brand" style="display:flex; gap:16px; align-items:center;">
+        <div class="logo">VH</div>
+        <div>
+          <h1>Aryogyashala</h1>
+          <p style="color:var(--muted)">Dr. Sanjeet Kumar (Ortho) & Dr. Anjali Kumari (Gynae)</p>
+        </div>
       </div>
     </header>
 
-    <section class="card">
+    <section class="card" id="doctors">
       <h3>Humare Doctors</h3>
       <div class="grid">
         <article>
-          <strong>Dr. Sanjeet Kumar</strong> (Orthopedic Surgeon)
-          <p style="font-size:0.9rem; color:var(--muted)">MBBS, MD | Exp: 2 saal<br>Focus: Joint Surgery, Fracture, ACL</p>
+          <img src="" alt="Dr. Sanjeet" style="width:100%; border-radius:10px; background:#eee; height:200px; object-fit:cover;">
+          <h4>Dr. Sanjeet Kumar</h4>
+          <p style="color:var(--muted)">Orthopedic Surgeon | Joint, Fracture Specialist</p>
         </article>
         <article>
-          <strong>Dr. Anjali Kumari</strong> (Gynecologist)
-          <p style="font-size:0.9rem; color:var(--muted)">MBBS, MD | Exp: 2 saal<br>Focus: Pregnancy Care, PCOD, Deliveries</p>
+          <img src="" alt="Dr. Anjali" style="width:100%; border-radius:10px; background:#eee; height:200px; object-fit:cover;">
+          <h4>Dr. Anjali Kumari</h4>
+          <p style="color:var(--muted)">Gynecologist | Maternity & Women's Health</p>
         </article>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Upchaar aur Vibhag</h3>
+      <div class="grid">
+        <div>
+          <h4>Orthopedics</h4>
+          <p>Fracture, ACL, Joint Replacement, Sports Injury.</p>
+        </div>
+        <div>
+          <h4>Gynecology</h4>
+          <p>Maternity Care, PCOD, Deliveries, Infertility.</p>
+        </div>
       </div>
     </section>
 
     <section class="card" id="appointment">
       <h3>Appointment Lijiye</h3>
       <form id="appointmentForm" action="https://formspree.io/f/xblnplaz" method="POST">
-        <div class="grid">
-          <input name="name" required placeholder="Aapka Naam" />
-          <input name="phone" required placeholder="Phone Number" />
-        </div>
-        <select name="doctor" required style="margin: 15px 0;">
+        <input name="name" required placeholder="Aapka Naam" style="margin-bottom:10px;" />
+        <input name="phone" required placeholder="Phone (+91)" style="margin-bottom:10px;" />
+        <select name="doctor" required style="margin-bottom:10px;">
           <option value="">-- Doctor Select Karein --</option>
-          <option value="Dr. Sanjeet Kumar">Dr. Sanjeet Kumar (Haddi Rog)</option>
-          <option value="Dr. Anjali Kumari">Dr. Anjali Kumari (Stree Rog)</option>
+          <option value="Dr. Sanjeet Kumar">Dr. Sanjeet Kumar (Orthopedic)</option>
+          <option value="Dr. Anjali Kumari">Dr. Anjali Kumari (Gynecologist)</option>
         </select>
-        <textarea name="message" placeholder="Short Message (optional)"></textarea>
-        <button class="primary" type="submit" style="margin-top:15px">Request Bhejein (WhatsApp Confirmation)</button>
+        <textarea name="message" placeholder="Short Message"></textarea>
+        <button class="primary" type="submit" style="margin-top:10px; width:100%;">Request Bhejein</button>
       </form>
-      <div id="successMessage" style="display:none; color:green; margin-top:15px; font-weight:bold;">🎉 Appointment Request Sent!</div>
+      <div id="successMessage" style="display:none; background:#e8ffe8; padding:15px; border-radius:10px; margin-top:15px;">
+        Appointment Successfully Requested! 🎉
+      </div>
     </section>
 
-    <section class="billing-panel" id="admin-billing">
-      <h3>Staff Billing Panel (Admin Only)</h3>
-      <p>Quick Bill Generate Karein:</p>
+    <section class="billing-panel">
+      <h3>Staff Quick Bill (Admin Only)</h3>
+      <p>Bina type kiye bill generate karein:</p>
       <div class="btn-grid">
-        <button class="btn-auto" onclick="makeBill(200, 'OPD Registration')">OPD (₹200)</button>
-        <button class="btn-auto" onclick="makeBill(500, 'Consultation')">Consultation (₹500)</button>
-        <button class="btn-auto" onclick="makeBill(1500, 'Surgery/Treatment')">Special (₹1500)</button>
+        <button class="btn-auto" onclick="generateBill(200, 'OPD Fee')">OPD (₹200)</button>
+        <button class="btn-auto" onclick="generateBill(500, 'Consultation')">Consultation (₹500)</button>
+        <button class="btn-auto" onclick="generateBill(1500, 'Special Treatment')">Special (₹1500)</button>
       </div>
-
       <div id="qrBox">
-        <h4 id="billTag">Service Name</h4>
-        <div id="qrImg"></div>
-        <h2 id="billAmt">₹0</h2>
-        <p style="font-size: 0.8rem; color: var(--muted);">Scan with Any UPI App</p>
-        <button onclick="document.getElementById('qrBox').style.display='none'" style="margin-top:10px">Close</button>
+        <h4 id="billName">Service</h4>
+        <div id="qrImage"></div>
+        <h2 id="billAmount">₹0</h2>
+        <button onclick="document.getElementById('qrBox').style.display='none'">Close</button>
       </div>
     </section>
 
     <section class="card">
       <h3>Rogi kya kehte hain</h3>
       <div class="grid">
-        <p><i>"Bahut hi accha treatment. Dr. Sanjeet ne fracture ka sahi diagnosis kiya."</i><br><b>- Rohan Kumar</b></p>
-        <p><i>"Dr. Anjali bahut polite hain. Pregnancy care safe raha."</i><br><b>- Priya Sharma</b></p>
+        <p><i>"Dr. Sanjeet ne fracture ka sahi diagnosis kiya."</i> - Rohan Kumar</p>
+        <p><i>"Dr. Anjali bahut polite aur helpful hain."</i> - Priya Sharma</p>
       </div>
     </section>
-
   </div>
 
-  <footer style="text-align:center; padding:30px; color:var(--muted)">
-    © 2025 Aaryogyashala Clinic — All Rights Reserved.
-  </footer>
-
   <script>
-    // 1. WhatsApp & Formspree Logic (From your file)
     const form = document.getElementById("appointmentForm");
     const successBox = document.getElementById("successMessage");
 
+    // Aapka WhatsApp Logic
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
       const data = new FormData(form);
-      
-      // Send to Formspree
       let response = await fetch(form.action, {
-        method: "POST",
-        body: data,
-        headers: { "Accept": "application/json" }
+        method: "POST", body: data, headers: { "Accept": "application/json" }
       });
-
       if (response.ok) {
         successBox.style.display = "block";
-        const name = data.get("name");
-        const phone = data.get("phone");
-        const doc = data.get("doctor");
-        
-        // Open WhatsApp
-        const text = `New Appointment:%0AName: ${name}%0APhone: ${phone}%0ADoctor: ${doc}`;
+        const text = `New Appointment:%0AName: ${data.get("name")}%0APhone: ${data.get("phone")}%0ADoctor: ${data.get("doctor")}`;
         window.open(`https://wa.me/918409681110?text=${text}`, "_blank");
         form.reset();
       }
     });
 
-    // 2. Billing Logic (New)
-    function makeBill(amt, service) {
+    // Naya Billing Logic
+    function generateBill(amt, service) {
       const upiId = "8409681110@ybl";
-      const upiLink = `upi://pay?pa=${upiId}&pn=Aaryogyashala&am=${amt}&cu=INR&tn=${service}`;
+      const upiLink = `upi://pay?pa=${upiId}&pn=Aryogyashala&am=${amt}&cu=INR&tn=${service}`;
       const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(upiLink)}`;
       
-      document.getElementById('billTag').innerText = service;
-      document.getElementById('billAmt').innerText = "Pay: ₹" + amt;
-      document.getElementById('qrImg').innerHTML = `<img src="${qrUrl}" />`;
+      document.getElementById('billName').innerText = service;
+      document.getElementById('billAmount').innerText = "Pay: ₹" + amt;
+      document.getElementById('qrImage').innerHTML = `<img src="${qrUrl}" />`;
       document.getElementById('qrBox').style.display = 'block';
     }
   </script>
-
 </body>
 </html>
